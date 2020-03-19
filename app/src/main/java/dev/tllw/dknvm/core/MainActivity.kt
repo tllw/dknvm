@@ -1,7 +1,8 @@
-package dev.tllw.dknvm
+package dev.tllw.dknvm.core
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import dev.tllw.dknvm.R
 
 class MainActivity : AppCompatActivity() {
 
