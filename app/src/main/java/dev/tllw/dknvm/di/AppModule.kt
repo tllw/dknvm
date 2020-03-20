@@ -3,7 +3,9 @@ package dev.tllw.dknvm.di
 import android.content.Context
 import dagger.Module
 import dagger.Provides
+import dagger.android.ContributesAndroidInjector
 import dev.tllw.dknvm.core.DknvmApplication
+import dev.tllw.dknvm.core.MainActivity
 import dev.tllw.dknvm.data.Net
 import dev.tllw.dknvm.data.RestClient
 import javax.inject.Singleton

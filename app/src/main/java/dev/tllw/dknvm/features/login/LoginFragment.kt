@@ -1,4 +1,4 @@
-package dev.tllw.dknvm.features
+package dev.tllw.dknvm.features.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
