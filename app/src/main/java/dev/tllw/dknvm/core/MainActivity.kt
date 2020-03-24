@@ -1,8 +1,6 @@
 package dev.tllw.dknvm.core
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import dagger.android.DaggerActivity
 import dagger.android.support.DaggerAppCompatActivity
 import dev.tllw.dknvm.R
 import dev.tllw.dknvm.ui.TitleProvider

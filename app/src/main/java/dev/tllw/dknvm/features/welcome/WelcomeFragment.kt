@@ -1,4 +1,4 @@
-package dev.tllw.dknvm.features.login
+package dev.tllw.dknvm.features.welcome
 
 import android.os.Bundle
 import android.util.Log
@@ -9,27 +9,27 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import dagger.android.support.DaggerFragment
 import dev.tllw.dknvm.R
-import dev.tllw.dknvm.databinding.FragmentLoginBinding
+import dev.tllw.dknvm.databinding.FragmentWelcomeBinding
 
-class LoginFragment : DaggerFragment() {
+class WelcomeFragment: DaggerFragment() {
 
-    lateinit var binding: FragmentLoginBinding
+    lateinit var binding: FragmentWelcomeBinding
 
-    val viewModel: LoginViewModel by lazy {
-        ViewModelProvider(this).get(LoginViewModel::class.java)
+    val viewModel: WelcomeViewModel by lazy {
+        ViewModelProvider(this).get(WelcomeViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("qqq", "LoginFragment $this")
+        Log.d("qqq", "WelcomeFragment $this")
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+//
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_welcome, container, false)
 
         // Bind layout with ViewModel
         binding.viewmodel = viewModel
