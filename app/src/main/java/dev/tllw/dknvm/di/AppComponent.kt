@@ -11,7 +11,8 @@ import javax.inject.Singleton
     AndroidSupportInjectionModule::class,
     AppModule::class,
     ActivitiesModule::class,
-    FragmentsModule::class
+    FragmentsModule::class,
+    ViewModelModule::class
 ])
 interface AppComponent: AndroidInjector<DknvmApplication> {
 

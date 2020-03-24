@@ -4,8 +4,18 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import dev.tllw.dknvm.data.RestClient
+import javax.inject.Inject
 
-class LoginViewModel: ViewModel() {
+class LoginViewModel
+    @Inject constructor(
+        restClient: RestClient
+    ) : ViewModel() {
+
+    init {
+        Log.d("qqq", "LoginViewModel $this")
+    }
+
     private val _name = MutableLiveData("hello")
     private val _pass = MutableLiveData("")
 
@@ -15,5 +25,4 @@ class LoginViewModel: ViewModel() {
     fun loginClick() {
         Log.d("qqq", "LoginClick")
     }
-
 }
