@@ -1,7 +1,7 @@
-package dev.tllw.dknvm.di
+package dev.tllw.dknvm.features.login
 
 import javax.inject.Scope
 
 @Scope
 @Retention(AnnotationRetention.RUNTIME)
-annotation class ScopeActivity
+annotation class LoginScope

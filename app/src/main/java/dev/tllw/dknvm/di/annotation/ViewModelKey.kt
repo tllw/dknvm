@@ -1,4 +1,4 @@
-package dev.tllw.dknvm.di
+package dev.tllw.dknvm.di.annotation
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

@@ -1,5 +1,6 @@
 package dev.tllw.dknvm.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import javax.inject.Inject
@@ -14,6 +15,10 @@ constructor(
     private val creators: Map<Class<out ViewModel>,
             @JvmSuppressWildcards Provider<ViewModel>>
 ) : ViewModelProvider.Factory {
+
+    init {
+        Log.d("qqq", "ViewModelProviderFactory $this")
+    }
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         var creator: Provider<out ViewModel>? = creators[modelClass]

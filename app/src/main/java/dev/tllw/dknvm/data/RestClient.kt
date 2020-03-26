@@ -13,6 +13,5 @@ class StubRestClient @Inject constructor(val net: Net, private val appContext: D
 
     init {
         Log.d("qqq", "RestClient init $this")
-        Log.d("qqq", "RestClient appContext is $appContext")
     }
 }

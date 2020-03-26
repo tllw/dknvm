@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+import dev.tllw.dknvm.di.annotation.ViewModelKey
 import dev.tllw.dknvm.features.login.LoginViewModel
 import dev.tllw.dknvm.viewmodel.ViewModelProviderFactory
 
@@ -17,5 +18,5 @@ public abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey( LoginViewModel::class )
-    abstract fun bindMainViewModel( mainViewModel: LoginViewModel): ViewModel
+    abstract fun bindLoginViewModel( loginViewModel: LoginViewModel): ViewModel
 }

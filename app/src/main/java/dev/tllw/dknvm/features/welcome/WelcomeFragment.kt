@@ -10,18 +10,23 @@ import androidx.lifecycle.ViewModelProvider
 import dagger.android.support.DaggerFragment
 import dev.tllw.dknvm.R
 import dev.tllw.dknvm.databinding.FragmentWelcomeBinding
+import dev.tllw.dknvm.viewmodel.ViewModelProviderFactory
+import javax.inject.Inject
 
 class WelcomeFragment: DaggerFragment() {
 
-    lateinit var binding: FragmentWelcomeBinding
+    @Inject
+    lateinit var providerFactory: ViewModelProviderFactory
 
-    val viewModel: WelcomeViewModel by lazy {
-        ViewModelProvider(this).get(WelcomeViewModel::class.java)
-    }
+    private lateinit var viewModel: WelcomeViewModel
+
+    lateinit var binding: FragmentWelcomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("qqq", "WelcomeFragment $this")
+
+        viewModel = ViewModelProvider(this, providerFactory).get(WelcomeViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -30,11 +35,7 @@ class WelcomeFragment: DaggerFragment() {
     ): View? {
 //
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_welcome, container, false)
-
-        // Bind layout with ViewModel
         binding.viewmodel = viewModel
-
-        // LiveData needs the lifecycle owner
         binding.lifecycleOwner = this
 
         return binding.root

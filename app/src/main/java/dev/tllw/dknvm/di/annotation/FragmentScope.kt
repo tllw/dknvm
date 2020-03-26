@@ -1,7 +1,7 @@
-package dev.tllw.dknvm.di
+package dev.tllw.dknvm.di.annotation
 
 import javax.inject.Scope
 
 @Scope
 @Retention(AnnotationRetention.RUNTIME)
-annotation class ScopeFragment
+annotation class FragmentScope

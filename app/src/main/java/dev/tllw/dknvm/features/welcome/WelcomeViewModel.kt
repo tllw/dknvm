@@ -8,5 +8,4 @@ class WelcomeViewModel() : ViewModel() {
     init {
         Log.d("qqq", "WelcomeViewModel $this")
     }
-
 }
