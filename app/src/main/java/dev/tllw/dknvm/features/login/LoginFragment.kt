@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import dagger.android.support.DaggerFragment
 import dev.tllw.dknvm.R
+import dev.tllw.dknvm.core.BaseFragment
 import dev.tllw.dknvm.data.AuthClient
 import dev.tllw.dknvm.databinding.FragmentLoginBinding
 import dev.tllw.dknvm.viewmodel.ViewModelProviderFactory
 import javax.inject.Inject
 
-class LoginFragment : DaggerFragment() {
+class LoginFragment : BaseFragment() {
 
     @Inject
     lateinit var providerFactory: ViewModelProviderFactory
@@ -28,6 +28,8 @@ class LoginFragment : DaggerFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("qqq", "LoginFragment $this")
+
+        getAppComponent().injectLoginFragment(this)
 
         viewModel = ViewModelProvider(this, providerFactory).get(LoginViewModel::class.java)
     }

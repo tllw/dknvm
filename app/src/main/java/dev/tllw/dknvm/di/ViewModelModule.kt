@@ -7,16 +7,22 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 import dev.tllw.dknvm.di.annotation.ViewModelKey
 import dev.tllw.dknvm.features.login.LoginViewModel
+import dev.tllw.dknvm.features.welcome.WelcomeViewModel
 import dev.tllw.dknvm.viewmodel.ViewModelProviderFactory
 
 @Module
-public abstract class ViewModelModule {
+abstract class ViewModelModule {
 
     @Binds
-    abstract fun bindViewModelFactory(viewModelProviderFactory: ViewModelProviderFactory): ViewModelProvider.Factory
+    abstract fun bindViewModelFactory(factory: ViewModelProviderFactory): ViewModelProvider.Factory
 
     @Binds
     @IntoMap
-    @ViewModelKey( LoginViewModel::class )
-    abstract fun bindLoginViewModel( loginViewModel: LoginViewModel): ViewModel
+    @ViewModelKey(LoginViewModel::class)
+    abstract fun bindLoginViewModel(viewModel: LoginViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(WelcomeViewModel::class)
+    abstract fun bindWelcomeViewModel(viewModel: WelcomeViewModel): ViewModel
 }

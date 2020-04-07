@@ -5,26 +5,23 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dev.tllw.dknvm.core.DknvmApplication
-import dev.tllw.dknvm.data.Net
-import dev.tllw.dknvm.data.RestClient
-import dev.tllw.dknvm.data.StubNet
-import dev.tllw.dknvm.data.StubRestClient
+import dev.tllw.dknvm.data.*
 import javax.inject.Singleton
 
-@Module(includes = [ViewModelModule::class])
+@Module
 abstract class AppModule {
 
     @Binds
     @Singleton
-    abstract fun bindContext(application: DknvmApplication): Application
+    abstract fun bindApplicationContext(application: DknvmApplication): Application
 
     @Binds
     @Singleton
     abstract fun bindRestClient(restClient: StubRestClient): RestClient
 
-//    @Binds
-//    @Singleton
-//    abstract fun bindUserSession(userSession: UserSessionImpl): UserSession
+    @Binds
+    @Singleton
+    abstract fun bindAuthClient(authClient: StubAuthClient) : AuthClient
 
     /*
     Workaround that allows both abstract and concrete annotations in the same Module,

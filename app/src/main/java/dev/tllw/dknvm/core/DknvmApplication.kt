@@ -1,17 +1,22 @@
 package dev.tllw.dknvm.core
 
-import dagger.android.AndroidInjector
-import dagger.android.DaggerApplication
-import dev.tllw.dknvm.data.RestClient
+import android.app.Application
+import dev.tllw.dknvm.di.AppComponent
 import dev.tllw.dknvm.di.DaggerAppComponent
-import javax.inject.Inject
 
-class DknvmApplication : DaggerApplication() {
+class DknvmApplication : Application() {
 
-    @Inject
-    lateinit var restClient: RestClient
+    lateinit var appComponent: AppComponent
 
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent.factory().create(this)
+    override fun onCreate() {
+        super.onCreate()
+        initAppComponent()
+
+    }
+
+    private fun initAppComponent() {
+        appComponent = DaggerAppComponent.builder()
+            .application(this)
+            .build()
     }
 }

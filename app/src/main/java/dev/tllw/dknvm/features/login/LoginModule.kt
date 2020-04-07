@@ -8,7 +8,4 @@ import dev.tllw.dknvm.data.StubAuthClient
 @Module
 abstract class LoginModule {
 
-    @Binds
-    @LoginScope
-    abstract fun bindAuthClient(authClient: StubAuthClient) : AuthClient
 }

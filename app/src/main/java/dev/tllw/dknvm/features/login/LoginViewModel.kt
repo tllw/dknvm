@@ -21,8 +21,4 @@ class LoginViewModel
 
     val email: LiveData<String> = _name
     val pass: LiveData<String> = _pass
-
-//    fun loginClick() {
-//        Log.d("qqq", "LoginClick")
-//    }
 }

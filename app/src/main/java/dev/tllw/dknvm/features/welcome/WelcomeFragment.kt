@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import dagger.android.support.DaggerFragment
 import dev.tllw.dknvm.R
+import dev.tllw.dknvm.core.BaseFragment
 import dev.tllw.dknvm.databinding.FragmentWelcomeBinding
 import dev.tllw.dknvm.viewmodel.ViewModelProviderFactory
 import javax.inject.Inject
 
-class WelcomeFragment: DaggerFragment() {
+class WelcomeFragment: BaseFragment() {
 
     @Inject
     lateinit var providerFactory: ViewModelProviderFactory
@@ -25,6 +25,8 @@ class WelcomeFragment: DaggerFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("qqq", "WelcomeFragment $this")
+
+        getAppComponent().injectWelcomeFragment(this)
 
         viewModel = ViewModelProvider(this, providerFactory).get(WelcomeViewModel::class.java)
     }

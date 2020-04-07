@@ -1,19 +1,30 @@
 package dev.tllw.dknvm.di
 
+import android.app.Application
+import dagger.BindsInstance
 import dagger.Component
-import dagger.android.AndroidInjector
-import dagger.android.support.AndroidSupportInjectionModule
-import dev.tllw.dknvm.core.DknvmApplication
+import dev.tllw.dknvm.core.MainActivity
+import dev.tllw.dknvm.features.login.LoginFragment
+import dev.tllw.dknvm.features.welcome.WelcomeFragment
 import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
-    AndroidSupportInjectionModule::class,
     AppModule::class,
-    ActivityBuilderModule::class
+    ViewModelModule::class,
+    FragmentsBuilderModule::class
 ])
-interface AppComponent: AndroidInjector<DknvmApplication> {
+interface AppComponent {
 
-    @Component.Factory
-    abstract class Factory : AndroidInjector.Factory<DknvmApplication>
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun application(application: Application): Builder
+
+        fun build(): AppComponent
+    }
+
+    fun injectMainActivity(mainActivity: MainActivity)
+    fun injectLoginFragment(loginFragment: LoginFragment)
+    fun injectWelcomeFragment(welcomeFragment: WelcomeFragment)
 }
