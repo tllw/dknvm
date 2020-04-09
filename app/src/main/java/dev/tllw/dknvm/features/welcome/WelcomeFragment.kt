@@ -10,13 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import dev.tllw.dknvm.R
 import dev.tllw.dknvm.core.BaseFragment
 import dev.tllw.dknvm.databinding.FragmentWelcomeBinding
-import dev.tllw.dknvm.viewmodel.ViewModelProviderFactory
-import javax.inject.Inject
+import dev.tllw.dknvm.di.factory.ViewModelProviderFactory
 
-class WelcomeFragment: BaseFragment() {
-
-    @Inject
-    lateinit var providerFactory: ViewModelProviderFactory
+class WelcomeFragment(private val viewModelProviderFactory: ViewModelProviderFactory) : BaseFragment() {
 
     private lateinit var viewModel: WelcomeViewModel
 
@@ -26,9 +22,7 @@ class WelcomeFragment: BaseFragment() {
         super.onCreate(savedInstanceState)
         Log.d("qqq", "WelcomeFragment $this")
 
-        getAppComponent().injectWelcomeFragment(this)
-
-        viewModel = ViewModelProvider(this, providerFactory).get(WelcomeViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelProviderFactory).get(WelcomeViewModel::class.java)
     }
 
     override fun onCreateView(

@@ -1,19 +1,13 @@
 package dev.tllw.dknvm.di
 
-import android.app.Application
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import dev.tllw.dknvm.core.DknvmApplication
 import dev.tllw.dknvm.data.*
 import javax.inject.Singleton
 
 @Module
 abstract class AppModule {
-
-    @Binds
-    @Singleton
-    abstract fun bindApplicationContext(application: DknvmApplication): Application
 
     @Binds
     @Singleton

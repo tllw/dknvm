@@ -9,18 +9,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import dev.tllw.dknvm.R
 import dev.tllw.dknvm.core.BaseFragment
-import dev.tllw.dknvm.data.AuthClient
 import dev.tllw.dknvm.databinding.FragmentLoginBinding
-import dev.tllw.dknvm.viewmodel.ViewModelProviderFactory
-import javax.inject.Inject
+import dev.tllw.dknvm.di.factory.ViewModelProviderFactory
 
-class LoginFragment : BaseFragment() {
-
-    @Inject
-    lateinit var providerFactory: ViewModelProviderFactory
-
-    @Inject
-    lateinit var authClient: AuthClient
+class LoginFragment(private val viewModelProviderFactory: ViewModelProviderFactory) : BaseFragment() {
 
     private lateinit var viewModel: LoginViewModel
     lateinit var binding: FragmentLoginBinding
@@ -29,9 +21,7 @@ class LoginFragment : BaseFragment() {
         super.onCreate(savedInstanceState)
         Log.d("qqq", "LoginFragment $this")
 
-        getAppComponent().injectLoginFragment(this)
-
-        viewModel = ViewModelProvider(this, providerFactory).get(LoginViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelProviderFactory).get(LoginViewModel::class.java)
     }
 
     override fun onCreateView(

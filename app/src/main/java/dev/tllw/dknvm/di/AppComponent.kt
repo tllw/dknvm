@@ -4,8 +4,6 @@ import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
 import dev.tllw.dknvm.core.MainActivity
-import dev.tllw.dknvm.features.login.LoginFragment
-import dev.tllw.dknvm.features.welcome.WelcomeFragment
 import javax.inject.Singleton
 
 @Singleton
@@ -25,6 +23,4 @@ interface AppComponent {
     }
 
     fun injectMainActivity(mainActivity: MainActivity)
-    fun injectLoginFragment(loginFragment: LoginFragment)
-    fun injectWelcomeFragment(welcomeFragment: WelcomeFragment)
 }

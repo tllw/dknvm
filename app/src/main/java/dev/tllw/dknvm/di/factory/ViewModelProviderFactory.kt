@@ -1,4 +1,4 @@
-package dev.tllw.dknvm.viewmodel
+package dev.tllw.dknvm.di.factory
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
